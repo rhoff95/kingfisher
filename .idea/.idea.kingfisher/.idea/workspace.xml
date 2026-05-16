@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cc09cea-bf92-481f-adab-24dee98b529d" name="Changes" comment="Adds basic controls and VFX">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/PlayerActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/PlayerActions.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="5cc09cea-bf92-481f-adab-24dee98b529d" name="Changes" comment="Implements rotation and vfx rotation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +107,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778936709190</updated>
-      <workItem from="1778936710816" duration="4810000" />
+      <workItem from="1778936710816" duration="5159000" />
     </task>
     <task id="LOCAL-00001" summary="Adds project files">
       <option name="closed" value="true" />
@@ -131,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778940268802</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implements rotation and vfx rotation">
+      <option name="closed" value="true" />
+      <created>1778951209171</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1778951209171</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +163,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Adds project files" />
     <MESSAGE value="Adds basic controls and VFX" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds basic controls and VFX" />
+    <MESSAGE value="Implements rotation and vfx rotation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements rotation and vfx rotation" />
   </component>
 </project>
