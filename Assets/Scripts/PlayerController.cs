@@ -9,13 +9,17 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
     private PlayerActions.GameplayActions _gameplayActions;
 
     private Rigidbody2D _rb;
-    
+
     private float _thrustInput;
+    private float _rotateInput;
 
     private float _direction = 0f;
 
+    public GameObject vfx;
+
     [Range(0f, 10f)] public float maxSpeed;
-    
+    [Range(0f, 10f)] public float maxRotationSpeed;
+
     private void Awake()
     {
         _playerActions = new PlayerActions();
@@ -54,12 +58,13 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
         {
             _thrustInput = 0f;
         }
-
     }
 
     public void OnTurn(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+        var value = context.ReadValue<float>();
+
+        _rotateInput = value;
     }
 
     #endregion
@@ -70,5 +75,10 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
         var direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
 
         _rb.linearVelocity = direction.normalized * (_thrustInput * maxSpeed);
+
+        _direction += _rotateInput * maxRotationSpeed;
+        _direction %= 360;
+
+        vfx.transform.rotation = Quaternion.Euler(-_direction, 90, _direction);
     }
 }
