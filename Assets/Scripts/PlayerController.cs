@@ -17,8 +17,12 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
 
     public GameObject vfx;
 
-    [Range(0f, 10f)] public float maxSpeed;
-    [Range(0f, 10f)] public float maxRotationSpeed;
+    [Range(0f, 100f)] public float thrustAcceleration;
+    [Range(0f, 100f)] public float gravityAcceleration;
+    [Range(0f, 100f)] public float buoyancyAccelerationGoingDown;
+    [Range(0f, 100f)] public float buoyancyAccelerationGoingUp;
+    [Range(0f, 100f)] public float maxSpeed;
+    [Range(0f, 5f)] public float maxRotationSpeed;
 
     private void Awake()
     {
@@ -71,14 +75,51 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
 
     private void Update()
     {
-        var radians = _direction * Mathf.Deg2Rad;
-        var direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
-
-        _rb.linearVelocity = direction.normalized * (_thrustInput * maxSpeed);
-
         _direction += _rotateInput * maxRotationSpeed;
         _direction %= 360;
 
         vfx.transform.rotation = Quaternion.Euler(-_direction, 90, _direction);
+    }
+
+    private void FixedUpdate()
+    {
+        var radians = _direction * Mathf.Deg2Rad;
+        var direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
+
+        // Thrust based on input
+        if (_thrustInput > 0f)
+        {
+            _rb.linearVelocity += direction.normalized * (Time.fixedDeltaTime * (_thrustInput * thrustAcceleration));
+        }
+        // Downward gravity if no thrust and above horizon
+        else if (transform.position.y > 0f)
+        {
+            _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, -gravityAcceleration);
+        }
+
+        if (transform.position.y < 0f)
+        {
+            if (_rb.linearVelocity.y > 0f)
+            {
+                _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, buoyancyAccelerationGoingUp);
+            }
+            else
+            {
+                _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, buoyancyAccelerationGoingDown);
+            }
+        }
+
+        if (_rb.linearVelocity.magnitude > maxSpeed)
+        {
+            _rb.linearVelocity = _rb.linearVelocity.normalized * maxSpeed;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (_rb != null)
+        {
+            Gizmos.DrawRay(transform.position, _rb.linearVelocity);
+        }
     }
 }
