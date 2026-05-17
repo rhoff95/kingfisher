@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e23afa007a00d6488c89bcc847b6268
+guid: 1d183aa4b1ff61b4fa5c941b891efec8
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -73,7 +73,7 @@ ScriptedImporter:
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
     fileImportMode: 0
-    importHiddenLayers: 1
+    importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
@@ -88,7 +88,7 @@ ScriptedImporter:
     generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 0
-    importHiddenLayers: 1
+    importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639146269657104411
+  platformSettingsDirtyTick: 639146275475898498
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,19 +127,19 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: sprite-sheet
+  - name: wings
     originalName: 
-    pivot: {x: 0.5, y: -3}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
-      width: 128
+      x: 0
+      y: 0
+      width: 32
       height: 32
-    spriteID: e99105780ffb7d34b85519670036241b
+    spriteID: ac197657749fdb64f8ea3892e42aae51
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,9 +147,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 0, y: 0}
   spriteSheetImportData:
-  - name: sprite-sheet_0
+  - name: wings_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -161,28 +161,7 @@ ScriptedImporter:
       y: 0
       width: 32
       height: 32
-    spriteID: 2c191c94a0b4fb646aab4d3c3fd807e4
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: sprite-sheet_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 32
-      y: 0
-      width: 32
-      height: 32
-    spriteID: c40a719f9212ed8489986f4e07148cf7
+    spriteID: 4f7703b0379d1974a96c3eff095f9f54
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -195,25 +174,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2909752983
+      value0: 2482287750
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: sprite-sheet
+    name: wings
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: sprite-sheet
+    - name: wings
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 96
-        width: 64
+        y: 0
+        width: 32
         height: 32
-      spriteId: e99105780ffb7d34b85519670036241b
+      spriteId: ac197657749fdb64f8ea3892e42aae51
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -259,5 +238,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 128, y: 128}
-  previousTextureSize: {x: 64, y: 32}
+  canvasSize: {x: 32, y: 32}
+  previousTextureSize: {x: 32, y: 32}

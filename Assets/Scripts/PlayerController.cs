@@ -16,13 +16,20 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
     private float _direction = 0f;
 
     public GameObject vfx;
+    public ParticleSystem thrustPfx;
 
+    public Vector2 initialVelocity;
+    
+    [Header("Movement")]
     [Range(0f, 100f)] public float thrustAcceleration;
     [Range(0f, 100f)] public float gravityAcceleration;
     [Range(0f, 100f)] public float buoyancyAccelerationGoingDown;
     [Range(0f, 100f)] public float buoyancyAccelerationGoingUp;
     [Range(0f, 100f)] public float maxSpeed;
-    [Range(0f, 5f)] public float maxRotationSpeed;
+    
+    [Header("Rotation")]
+    [Range(0f, 500f)] public float rotationSpeedNoThrust;
+    [Range(0f, 500f)] public float rotationSpeedThrust;
 
     private void Awake()
     {
@@ -31,6 +38,11 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
         _gameplayActions.AddCallbacks(this);
 
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        _rb.linearVelocity = initialVelocity;
     }
 
     private void OnDestroy()
@@ -57,10 +69,12 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
         if (value)
         {
             _thrustInput = 1f;
+            thrustPfx.Play();
         }
         else
         {
             _thrustInput = 0f;
+            thrustPfx.Stop();
         }
     }
 
@@ -75,14 +89,17 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
 
     private void Update()
     {
-        _direction += _rotateInput * maxRotationSpeed;
-        _direction %= 360;
 
         vfx.transform.rotation = Quaternion.Euler(-_direction, 90, _direction);
     }
 
     private void FixedUpdate()
     {
+        var rotationSpeed = _thrustInput > 0f ? rotationSpeedThrust : rotationSpeedNoThrust;
+        
+        _direction += Time.deltaTime * _rotateInput * rotationSpeed;
+        _direction %= 360;
+        
         var radians = _direction * Mathf.Deg2Rad;
         var direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
 
