@@ -4,32 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cc09cea-bf92-481f-adab-24dee98b529d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Body.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Body.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Wings.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Wings.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/body.aseprite" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/body.aseprite.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/body.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/body.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet_0.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet_0.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet_1.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet_1.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/wings.aseprite" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/wings.aseprite.meta" afterDir="false" />
+    <list default="true" id="5cc09cea-bf92-481f-adab-24dee98b529d" name="Changes" comment="Implements mechanics values">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/New Render Texture.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/New Render Texture.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet_2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet_2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet_3.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet_3.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +30,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6567e2a645a94ef68fffcf0e5cb82d14212a00/5b/98d0953c/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/robby/Documents/Unity Projects/kingfisher/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6567e2a645a94ef68fffcf0e5cb82d14212a00/a8/b3ff0690/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -136,7 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1778936709190</updated>
       <workItem from="1778936710816" duration="8539000" />
-      <workItem from="1779037131146" duration="3157000" />
+      <workItem from="1779037131146" duration="3722000" />
     </task>
     <task id="LOCAL-00001" summary="Adds project files">
       <option name="closed" value="true" />
@@ -178,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778978632680</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Implements mechanics values">
+      <option name="closed" value="true" />
+      <created>1779046275226</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1779046275226</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +196,7 @@
     <MESSAGE value="Implements rotation and vfx rotation" />
     <MESSAGE value="Fixes default angle" />
     <MESSAGE value="Implements buoyancy mechanic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements buoyancy mechanic" />
+    <MESSAGE value="Implements mechanics values" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements mechanics values" />
   </component>
 </project>

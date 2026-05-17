@@ -37353,6 +37353,7 @@ MonoBehaviour:
   vfx: {fileID: 1963756723}
   thrustPfx: {fileID: 1520401494}
   initialVelocity: {x: 0, y: 12.8}
+  linearVelocitySmoothTime: 0.4
   thrustAcceleration: 15
   gravityAcceleration: 10.24
   buoyancyAccelerationGoingDown: 51.2

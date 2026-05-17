@@ -19,8 +19,11 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
     public ParticleSystem thrustPfx;
 
     public Vector2 initialVelocity;
+   
+    private Vector2 _linearVelocity;
     
     [Header("Movement")]
+    [Range(0f, 1f)]public float linearVelocitySmoothTime;
     [Range(0f, 100f)] public float thrustAcceleration;
     [Range(0f, 100f)] public float gravityAcceleration;
     [Range(0f, 100f)] public float buoyancyAccelerationGoingDown;
@@ -92,7 +95,7 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
 
         vfx.transform.rotation = Quaternion.Euler(-_direction, 90, _direction);
     }
-
+    
     private void FixedUpdate()
     {
         var rotationSpeed = _thrustInput > 0f ? rotationSpeedThrust : rotationSpeedNoThrust;
@@ -106,7 +109,13 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
         // Thrust based on input
         if (_thrustInput > 0f)
         {
-            _rb.linearVelocity += direction.normalized * (Time.fixedDeltaTime * (_thrustInput * thrustAcceleration));
+            // _rb.linearVelocity += direction.normalized * (Time.fixedDeltaTime * (_thrustInput * thrustAcceleration));
+            _rb.linearVelocity = Vector2.SmoothDamp(
+                _rb.linearVelocity,
+                direction.normalized * (_thrustInput * thrustAcceleration),
+                ref _linearVelocity,
+                linearVelocitySmoothTime
+            );
         }
         // Downward gravity if no thrust and above horizon
         else if (transform.position.y > 0f)
