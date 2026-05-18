@@ -1,0 +1,3 @@
+[submodule "Assets/Plugins/unity-utils"]
+	path = Assets/Plugins/unity-utils
+	url = https://github.com/rhoff95/unity-utils
