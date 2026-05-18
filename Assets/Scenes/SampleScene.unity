@@ -37409,14 +37409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActorController
   vfx: {fileID: 1963756723}
-  initialVelocity: {x: 0, y: 12.8}
-  linearVelocitySmoothTime: 0.3
-  thrustAcceleration: 15
-  gravityAcceleration: 10.24
-  buoyancyAcceleration: 51.2
-  maxSpeed: 12.8
-  rotationSpeedNoThrust: 320
-  rotationSpeedThrust: 120
+  properties: {fileID: 11400000, guid: 8e04ec38676f501428f7f2548c9fe93d, type: 2}
 --- !u!1 &1520401491
 GameObject:
   m_ObjectHideFlags: 0

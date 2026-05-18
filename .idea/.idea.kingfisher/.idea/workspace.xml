@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cc09cea-bf92-481f-adab-24dee98b529d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ActorController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ActorController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite.meta" afterDir="false" />
+    <list default="true" id="5cc09cea-bf92-481f-adab-24dee98b529d" name="Changes" comment="Separates input and controller">
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Actor Properties.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Actor Properties/Player Properties.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Actor Properties/Player Properties.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ActorProperties.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ActorProperties.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ActorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ActorController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +120,7 @@
       <updated>1778936709190</updated>
       <workItem from="1778936710816" duration="8539000" />
       <workItem from="1779037131146" duration="3878000" />
-      <workItem from="1779066729400" duration="1089000" />
+      <workItem from="1779066729400" duration="1418000" />
     </task>
     <task id="LOCAL-00001" summary="Adds project files">
       <option name="closed" value="true" />
@@ -177,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779046825049</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Separates input and controller">
+      <option name="closed" value="true" />
+      <created>1779067954222</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1779067954222</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +221,7 @@
     <MESSAGE value="Implements buoyancy mechanic" />
     <MESSAGE value="Implements mechanics values" />
     <MESSAGE value="Adds more responsive linear velocity mechanic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds more responsive linear velocity mechanic" />
+    <MESSAGE value="Separates input and controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Separates input and controller" />
   </component>
 </project>

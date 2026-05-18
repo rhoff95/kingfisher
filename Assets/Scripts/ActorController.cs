@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class ActorController : MonoBehaviour
@@ -7,18 +8,8 @@ public class ActorController : MonoBehaviour
     
     [Header("Visuals")]
     public GameObject vfx;
-    
-    [Header("Movement")]
-    public Vector2 initialVelocity;
-    [Range(0f, 1f)]public float linearVelocitySmoothTime;
-    [Range(0f, 100f)] public float thrustAcceleration;
-    [Range(0f, 100f)] public float gravityAcceleration;
-    [Range(0f, 100f)] public float buoyancyAcceleration;
-    [Range(0f, 100f)] public float maxSpeed;
-    
-    [Header("Rotation")]
-    [Range(0f, 500f)] public float rotationSpeedNoThrust;
-    [Range(0f, 500f)] public float rotationSpeedThrust;
+
+    public ActorProperties properties;
     
     #endregion
     
@@ -37,11 +28,16 @@ public class ActorController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+
+        if (properties == null)
+        {
+            throw new Exception($"Properties is null for {name}");
+        }
     }
     
     private void Start()
     {
-        _rb.linearVelocity = initialVelocity;
+        _rb.linearVelocity = properties.initialVelocity;
     }
     
     private void Update()
@@ -52,7 +48,7 @@ public class ActorController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        var rotationSpeed = _thrustActive ? rotationSpeedThrust : rotationSpeedNoThrust;
+        var rotationSpeed = _thrustActive ? properties.rotationSpeedThrust : properties.rotationSpeedNoThrust;
         
         _direction += Time.deltaTime * _rotationInput * rotationSpeed;
         _direction %= 360;
@@ -66,32 +62,32 @@ public class ActorController : MonoBehaviour
             // _rb.linearVelocity += direction.normalized * (Time.fixedDeltaTime * (_thrustInput * thrustAcceleration));
             _rb.linearVelocity = Vector2.SmoothDamp(
                 _rb.linearVelocity,
-                direction.normalized * thrustAcceleration,
+                direction.normalized * properties.thrustAcceleration,
                 ref _linearVelocity,
-                linearVelocitySmoothTime
+                properties.linearVelocitySmoothTime
             );
         }
         // Downward gravity if no thrust and above horizon
         else if (transform.position.y > 0f)
         {
-            _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, -gravityAcceleration);
+            _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, -properties.gravityAcceleration);
         }
 
         if (transform.position.y < 0f)
         {
             if (_rb.linearVelocity.y > 0f)
             {
-                _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, buoyancyAcceleration);
+                _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, properties.buoyancyAcceleration);
             }
             else
             {
-                _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, buoyancyAcceleration);
+                _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, properties.buoyancyAcceleration);
             }
         }
 
-        if (_rb.linearVelocity.magnitude > maxSpeed)
+        if (_rb.linearVelocity.magnitude > properties.maxSpeed)
         {
-            _rb.linearVelocity = _rb.linearVelocity.normalized * maxSpeed;
+            _rb.linearVelocity = _rb.linearVelocity.normalized * properties.maxSpeed;
         }
     }
     
