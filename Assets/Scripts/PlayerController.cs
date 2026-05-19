@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(ActorController))]
+[RequireComponent(typeof(ActorController))]
 public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
 {
     private PlayerActions _playerActions;

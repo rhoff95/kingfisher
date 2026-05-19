@@ -5,14 +5,16 @@ using UnityEngine;
 public class ActorController : MonoBehaviour
 {
     #region Public
-    
+
     [Header("Visuals")]
     public GameObject vfx;
 
+    public bool rotate3d;
+
     public ActorProperties properties;
-    
+
     #endregion
-    
+
     #region Private
 
     private Rigidbody2D _rb;
@@ -24,7 +26,7 @@ public class ActorController : MonoBehaviour
     private float _rotationInput;
 
     #endregion
-    
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -34,32 +36,32 @@ public class ActorController : MonoBehaviour
             throw new Exception($"Properties is null for {name}");
         }
     }
-    
+
     private void Start()
     {
         _rb.linearVelocity = properties.initialVelocity;
     }
-    
+
     private void Update()
     {
-
-        vfx.transform.rotation = Quaternion.Euler(-_direction, 90, _direction);
+        vfx.transform.rotation = rotate3d
+            ? Quaternion.Euler(-_direction, 90, _direction)
+            : Quaternion.Euler(0, 0, _direction);
     }
-    
+
     private void FixedUpdate()
     {
         var rotationSpeed = _thrustActive ? properties.rotationSpeedThrust : properties.rotationSpeedNoThrust;
-        
+
         _direction += Time.deltaTime * _rotationInput * rotationSpeed;
         _direction %= 360;
-        
+
         var radians = _direction * Mathf.Deg2Rad;
         var direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
 
         // Thrust based on input
         if (_thrustActive)
         {
-            // _rb.linearVelocity += direction.normalized * (Time.fixedDeltaTime * (_thrustInput * thrustAcceleration));
             _rb.linearVelocity = Vector2.SmoothDamp(
                 _rb.linearVelocity,
                 direction.normalized * properties.thrustAcceleration,
@@ -90,7 +92,7 @@ public class ActorController : MonoBehaviour
             _rb.linearVelocity = _rb.linearVelocity.normalized * properties.maxSpeed;
         }
     }
-    
+
     private void OnDrawGizmos()
     {
         if (_rb != null)
@@ -103,7 +105,7 @@ public class ActorController : MonoBehaviour
     {
         _thrustActive = thrustActive;
     }
-    
+
     public void SetRotationInput(float rotationInput)
     {
         _rotationInput = rotationInput;
