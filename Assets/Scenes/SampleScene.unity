@@ -37485,7 +37485,7 @@ Transform:
   m_GameObject: {fileID: 1061674961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37533,6 +37533,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActorController
   properties: {fileID: 11400000, guid: 8e04ec38676f501428f7f2548c9fe93d, type: 2}
+  initialVelocity: {x: 0, y: 12.8}
+  disableGravity: 1
+  disableInitialVelocity: 1
 --- !u!1 &1276863914
 GameObject:
   m_ObjectHideFlags: 0
@@ -37565,8 +37568,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeeController
   playerTag: Player
-  angleThreshold: 5
-  turnSpeedMaxPoint: 90
+  angleThreshold: 30
+  accelerationRange: 10
+  closeupRange: 3
+  waterLevel: 0
 --- !u!114 &1276863916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37580,6 +37585,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActorController
   properties: {fileID: 11400000, guid: d49aa25e55eaf344a8db0a72c2ae1935, type: 2}
+  initialVelocity: {x: 0, y: 0}
+  disableGravity: 0
+  disableInitialVelocity: 0
 --- !u!50 &1276863917
 Rigidbody2D:
   serializedVersion: 5
@@ -37616,7 +37624,7 @@ Transform:
   m_GameObject: {fileID: 1276863914}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: 1, z: 0}
+  m_LocalPosition: {x: -16, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

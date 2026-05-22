@@ -7,6 +7,12 @@ public class ActorController : MonoBehaviour
     #region Public
 
     public ActorProperties properties;
+    public Vector2 initialVelocity;
+
+    [Header("Debug")]
+    public bool disableGravity;
+
+    public bool disableInitialVelocity;
 
     #endregion
 
@@ -37,15 +43,15 @@ public class ActorController : MonoBehaviour
 
     private void Start()
     {
-        _rb.linearVelocity = properties.initialVelocity;
+        if (!disableInitialVelocity)
+        {
+            _rb.linearVelocity = initialVelocity;
+        }
     }
 
     private void Update()
     {
         _rb.rotation = _direction;
-        // vfx.transform.rotation = rotate3d
-        //     ? Quaternion.Euler(-_direction, 90, _direction)
-        //     : Quaternion.Euler(0, 0, _direction);
     }
 
     private void FixedUpdate()
@@ -69,7 +75,7 @@ public class ActorController : MonoBehaviour
             );
         }
         // Downward gravity if no thrust and above horizon
-        else if (transform.position.y > 0f)
+        else if (transform.position.y > 0f && !disableGravity)
         {
             _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, -properties.gravityAcceleration);
         }

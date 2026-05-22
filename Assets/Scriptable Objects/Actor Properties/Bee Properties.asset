@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36aee46d881b4a01a81d7f5b291e807b, type: 3}
   m_Name: Bee Properties
   m_EditorClassIdentifier: Assembly-CSharp::ActorProperties
-  initialVelocity: {x: 0, y: 0}
   linearVelocitySmoothTime: 0.5
-  thrustAcceleration: 1
+  thrustAcceleration: 15
   gravityAcceleration: 3
   buoyancyAcceleration: 51.4
   maxSpeed: 75
