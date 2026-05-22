@@ -10,7 +10,6 @@ public class BeeController : MonoBehaviour
     [TagSelector] public string playerTag;
 
     [Range(0f, 90f)] public float angleThreshold;
-    public float turnSpeedMaxPoint;
 
     private void Awake()
     {
@@ -32,7 +31,7 @@ public class BeeController : MonoBehaviour
 
         if (Mathf.Abs(angle) > angleThreshold)
         {
-            _actorController.SetRotationInput(angle / turnSpeedMaxPoint);
+            _actorController.SetRotationInput(Mathf.Sign(angle));
         }
         else
         {
