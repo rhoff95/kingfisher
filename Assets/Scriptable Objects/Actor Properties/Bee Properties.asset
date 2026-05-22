@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActorProperties
   initialVelocity: {x: 0, y: 0}
   linearVelocitySmoothTime: 0.5
-  thrustAcceleration: 5
-  gravityAcceleration: 0
-  buoyancyAcceleration: 0
-  maxSpeed: 9
-  rotationSpeedNoThrust: 160
-  rotationSpeedThrust: 60
+  thrustAcceleration: 1
+  gravityAcceleration: 3
+  buoyancyAcceleration: 51.4
+  maxSpeed: 75
+  rotationSpeedNoThrust: 300
+  rotationSpeedThrust: 90

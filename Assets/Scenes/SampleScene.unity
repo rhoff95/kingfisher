@@ -37474,6 +37474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b730f1cdb3d1f04f8ae50b50354b3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  cameraTransform: {fileID: 519420032}
   thrustPfx: {fileID: 1520401494}
 --- !u!4 &1061674963
 Transform:
@@ -37531,8 +37532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db374b35a5141a0967dd4d2253f17c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActorController
-  vfx: {fileID: 1963756723}
-  rotate3d: 1
   properties: {fileID: 11400000, guid: 8e04ec38676f501428f7f2548c9fe93d, type: 2}
 --- !u!1 &1276863914
 GameObject:
@@ -37580,8 +37579,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db374b35a5141a0967dd4d2253f17c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActorController
-  vfx: {fileID: 704751752}
-  rotate3d: 0
   properties: {fileID: 11400000, guid: d49aa25e55eaf344a8db0a72c2ae1935, type: 2}
 --- !u!50 &1276863917
 Rigidbody2D:

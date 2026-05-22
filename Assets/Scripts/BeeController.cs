@@ -26,7 +26,7 @@ public class BeeController : MonoBehaviour
         var position = transform.position;
         var toPlayer = playerPosition - position;
 
-        var right = _actorController.vfx.transform.right;
+        var right = _actorController.Rb.transform.right;
 
         var angle = Vector3.SignedAngle(right, toPlayer, Vector3.forward);
 

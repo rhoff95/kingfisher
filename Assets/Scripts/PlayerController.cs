@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(ActorController))]
 public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
@@ -7,7 +8,8 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
     private PlayerActions _playerActions;
     private PlayerActions.GameplayActions _gameplayActions;
     private ActorController _actorController;
-
+    
+    public Transform cameraTransform;
     public ParticleSystem thrustPfx;
 
     private void Awake()
@@ -16,6 +18,11 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
         _gameplayActions = _playerActions.Gameplay;
         _gameplayActions.AddCallbacks(this);
         _actorController = GetComponent<ActorController>();
+    }
+    
+    private void Update()
+    {
+        cameraTransform.rotation = Quaternion.Euler(0f, 0f, 0f);//-2f * _actorController._rb.rotation);
     }
 
     private void OnDestroy()
@@ -55,6 +62,11 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
     {
         var value = context.ReadValue<float>();
         _actorController.SetRotationInput(value);
+    }
+    
+    public void OnRestart(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     #endregion

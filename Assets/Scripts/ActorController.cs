@@ -6,11 +6,6 @@ public class ActorController : MonoBehaviour
 {
     #region Public
 
-    [Header("Visuals")]
-    public GameObject vfx;
-
-    public bool rotate3d;
-
     public ActorProperties properties;
 
     #endregion
@@ -18,6 +13,7 @@ public class ActorController : MonoBehaviour
     #region Private
 
     private Rigidbody2D _rb;
+
     private Vector2 _linearVelocity;
     private float _direction;
 
@@ -26,6 +22,8 @@ public class ActorController : MonoBehaviour
     private float _rotationInput;
 
     #endregion
+
+    public Rigidbody2D Rb => _rb;
 
     private void Awake()
     {
@@ -44,9 +42,10 @@ public class ActorController : MonoBehaviour
 
     private void Update()
     {
-        vfx.transform.rotation = rotate3d
-            ? Quaternion.Euler(-_direction, 90, _direction)
-            : Quaternion.Euler(0, 0, _direction);
+        _rb.rotation = _direction;
+        // vfx.transform.rotation = rotate3d
+        //     ? Quaternion.Euler(-_direction, 90, _direction)
+        //     : Quaternion.Euler(0, 0, _direction);
     }
 
     private void FixedUpdate()
