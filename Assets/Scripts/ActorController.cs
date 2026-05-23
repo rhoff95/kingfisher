@@ -47,6 +47,8 @@ public class ActorController : MonoBehaviour
         {
             _rb.linearVelocity = initialVelocity;
         }
+
+        _direction = _rb.rotation;
     }
 
     private void Update()
@@ -69,7 +71,7 @@ public class ActorController : MonoBehaviour
         {
             _rb.linearVelocity = Vector2.SmoothDamp(
                 _rb.linearVelocity,
-                direction.normalized * properties.thrustAcceleration,
+                direction.normalized * properties.maxSpeed,//properties.thrustAcceleration,
                 ref _linearVelocity,
                 properties.linearVelocitySmoothTime
             );

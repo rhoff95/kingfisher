@@ -16,6 +16,6 @@ MonoBehaviour:
   thrustAcceleration: 15
   gravityAcceleration: 3
   buoyancyAcceleration: 51.4
-  maxSpeed: 75
+  maxSpeed: 12
   rotationSpeedNoThrust: 300
   rotationSpeedThrust: 90

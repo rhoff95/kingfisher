@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36aee46d881b4a01a81d7f5b291e807b, type: 3}
   m_Name: Player Properties
   m_EditorClassIdentifier: Assembly-CSharp::ActorProperties
-  initialVelocity: {x: 0, y: 12.8}
   linearVelocitySmoothTime: 0.3
-  thrustAcceleration: 15
+  thrustAcceleration: 10
   gravityAcceleration: 10.24
   buoyancyAcceleration: 51.2
-  maxSpeed: 12.8
+  maxSpeed: 12
   rotationSpeedNoThrust: 320
   rotationSpeedThrust: 120

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
     private ActorController _actorController;
     
     public Transform cameraTransform;
-    public ParticleSystem thrustPfx;
+    public SpriteRenderer thrustSpriteRenderer;
 
     private void Awake()
     {
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
         _gameplayActions = _playerActions.Gameplay;
         _gameplayActions.AddCallbacks(this);
         _actorController = GetComponent<ActorController>();
+        thrustSpriteRenderer.enabled = false;
     }
     
     private void Update()
@@ -49,12 +50,12 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
         if (value)
         {
             _actorController.SetThrustActive(true);
-            thrustPfx.Play();
+            thrustSpriteRenderer.enabled = true;
         }
         else
         {
             _actorController.SetThrustActive(false);
-            thrustPfx.Stop();
+            thrustSpriteRenderer.enabled = false;
         }
     }
 

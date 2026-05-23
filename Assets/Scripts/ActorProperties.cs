@@ -5,7 +5,6 @@ public class ActorProperties : ScriptableObject
 {
     [Header("Movement")]
     [Range(0f, 1f)]public float linearVelocitySmoothTime;
-    [Range(0f, 100f)] public float thrustAcceleration;
     [Range(0f, 100f)] public float gravityAcceleration;
     [Range(0f, 100f)] public float buoyancyAcceleration;
     [Range(0f, 100f)] public float maxSpeed;
