@@ -2,21 +2,28 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(ActorController))]
+[RequireComponent(typeof(ActorController), typeof(ProjectileShooter))]
 public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
 {
     private PlayerActions _playerActions;
     private PlayerActions.GameplayActions _gameplayActions;
     private ActorController _actorController;
+    private ProjectileShooter _projectileShooter;
     
     public SpriteRenderer thrustSpriteRenderer;
 
     private void Awake()
     {
+        // Inputs
         _playerActions = new PlayerActions();
         _gameplayActions = _playerActions.Gameplay;
         _gameplayActions.AddCallbacks(this);
+        
+        // Components
         _actorController = GetComponent<ActorController>();
+        _projectileShooter = GetComponent<ProjectileShooter>();
+        
+        // Initialization
         thrustSpriteRenderer.enabled = false;
     }
 
@@ -62,6 +69,14 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
     public void OnRestart(InputAction.CallbackContext context)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _projectileShooter.Fire(transform.position, Vector3.right);
+        }
     }
 
     #endregion

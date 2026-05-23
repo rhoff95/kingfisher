@@ -21391,6 +21391,7 @@ GameObject:
   - component: {fileID: 1061674964}
   - component: {fileID: 1061674965}
   - component: {fileID: 1061674962}
+  - component: {fileID: 1061674966}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -21470,6 +21471,19 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 12.8}
   disableGravity: 0
   disableInitialVelocity: 0
+--- !u!114 &1061674966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061674961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d94da8516da23f4e9dbdfe0ccaf5f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileShooter
+  projectilePrefab: {fileID: 5291337161910591983, guid: a30d6a458e50e4c49a9b4e0cfc24bef0, type: 3}
 --- !u!1 &1076870325
 GameObject:
   m_ObjectHideFlags: 0
