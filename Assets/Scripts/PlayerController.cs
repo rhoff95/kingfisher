@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
     private PlayerActions.GameplayActions _gameplayActions;
     private ActorController _actorController;
     
-    public Transform cameraTransform;
     public SpriteRenderer thrustSpriteRenderer;
 
     private void Awake()
@@ -19,11 +18,6 @@ public class PlayerController : MonoBehaviour, PlayerActions.IGameplayActions
         _gameplayActions.AddCallbacks(this);
         _actorController = GetComponent<ActorController>();
         thrustSpriteRenderer.enabled = false;
-    }
-    
-    private void Update()
-    {
-        cameraTransform.rotation = Quaternion.Euler(0f, 0f, 0f);//-2f * _actorController._rb.rotation);
     }
 
     private void OnDestroy()

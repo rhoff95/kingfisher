@@ -50,14 +50,11 @@ public class ActorController : MonoBehaviour
 
         _direction = _rb.rotation;
     }
-
-    private void Update()
-    {
-        _rb.rotation = _direction;
-    }
-
+    
     private void FixedUpdate()
     {
+        _rb.rotation = _direction;
+        
         var rotationSpeed = _thrustActive ? properties.rotationSpeedThrust : properties.rotationSpeedNoThrust;
 
         _direction += Time.deltaTime * _rotationInput * rotationSpeed;
@@ -71,7 +68,7 @@ public class ActorController : MonoBehaviour
         {
             _rb.linearVelocity = Vector2.SmoothDamp(
                 _rb.linearVelocity,
-                direction.normalized * properties.maxSpeed,//properties.thrustAcceleration,
+                direction.normalized * properties.maxSpeed,
                 ref _linearVelocity,
                 properties.linearVelocitySmoothTime
             );
@@ -79,18 +76,18 @@ public class ActorController : MonoBehaviour
         // Downward gravity if no thrust and above horizon
         else if (transform.position.y > 0f && !disableGravity)
         {
-            _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, -properties.gravityAcceleration);
+            _rb.linearVelocity += Time.deltaTime * new Vector2(0f, -properties.gravityAcceleration);
         }
 
         if (transform.position.y < 0f)
         {
             if (_rb.linearVelocity.y > 0f)
             {
-                _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, properties.buoyancyAcceleration);
+                _rb.linearVelocity += Time.deltaTime * new Vector2(0f, properties.buoyancyAcceleration);
             }
             else
             {
-                _rb.linearVelocity += Time.fixedDeltaTime * new Vector2(0f, properties.buoyancyAcceleration);
+                _rb.linearVelocity += Time.deltaTime * new Vector2(0f, properties.buoyancyAcceleration);
             }
         }
 
