@@ -32,6 +32,9 @@ namespace Actors
         private float _rotationInput;
         private bool _isFiring = false;
         private float _timeToNextFire = 0f;
+        private int _health;
+
+        private const int MaxHealth = 100;
 
         #endregion
 
@@ -46,6 +49,8 @@ namespace Actors
             {
                 throw new Exception($"Properties is null for {name}");
             }
+
+            _health = MaxHealth;
         }
 
         private void Start()
@@ -165,9 +170,14 @@ namespace Actors
             }
         }
 
-        public void ApplyDamage(Projectile projectile)
+        public void ApplyDamage(Projectile projectile, int damage)
         {
-            Debug.Log($"{name} has been damaged by {projectile.name}!");
+            _health -= damage;
+
+            if (_health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

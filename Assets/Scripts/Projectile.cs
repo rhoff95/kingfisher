@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
     private float _direction;
     private float _speed;
     private Team _team;
+    private int _damage;
 
     private Rigidbody2D _rb;
     private Collider2D _collider;
@@ -40,7 +41,7 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        otherActor.ApplyDamage(this);
+        otherActor.ApplyDamage(this, _damage);
 
         // Create explosion FX
 
@@ -60,5 +61,10 @@ public class Projectile : MonoBehaviour
     public void SetTeam(Team team)
     {
         _team = team;
+    }
+    
+    public void SetDamage(int damage)
+    {
+        _damage = damage;
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4002936601292341380}
   - component: {fileID: 2594124039340335644}
   - component: {fileID: 7700901722741302007}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActorController
   properties: {fileID: 11400000, guid: d49aa25e55eaf344a8db0a72c2ae1935, type: 2}
   initialVelocity: {x: 0, y: 0}
+  fireDelay: 0
   disableGravity: 0
   disableInitialVelocity: 0
 --- !u!114 &7700901722741302007

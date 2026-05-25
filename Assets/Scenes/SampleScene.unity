@@ -12888,7 +12888,7 @@ GameObject:
   - component: {fileID: 1061674965}
   - component: {fileID: 1061674962}
   - component: {fileID: 1061674966}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -12983,6 +12983,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5291337161910591983, guid: a30d6a458e50e4c49a9b4e0cfc24bef0, type: 3}
   team: 0
   projectileSpeed: 30
+  damage: 50
 --- !u!58 &1061674967
 CircleCollider2D:
   m_ObjectHideFlags: 0
