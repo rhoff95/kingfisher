@@ -34,14 +34,14 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var otherActor = other.attachedRigidbody.GetComponentInParent<Actor>();
-        if (otherActor == null)
+        var damagable = other.attachedRigidbody.GetComponentInParent<IDamagable>();
+        if (damagable == null)
         {
             Destroy(gameObject);
             return;
         }
 
-        otherActor.ApplyDamage(this, _damage);
+        damagable.ApplyDamage(_damage);
 
         // Create explosion FX
 

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Actors
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Actor : MonoBehaviour
+    public class Actor : MonoBehaviour, IDamagable
     {
         #region Public
 
@@ -170,7 +170,7 @@ namespace Actors
             }
         }
 
-        public void ApplyDamage(Projectile projectile, int damage)
+        public void ApplyDamage(int damage)
         {
             _health -= damage;
 
@@ -178,6 +178,18 @@ namespace Actors
             {
                 Destroy(gameObject);
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            var damagable = other.attachedRigidbody.GetComponentInParent<IDamagable>();
+            if (damagable == null)
+            {
+                return;
+            }
+
+            damagable.ApplyDamage(0);
+            ApplyDamage(0);
         }
     }
 }
