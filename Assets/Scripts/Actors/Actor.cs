@@ -10,6 +10,7 @@ namespace Actors
 
         public ActorProperties properties;
         public Vector2 initialVelocity;
+        [Range(0f, 5f)] public float fireDelay;
 
         [Header("Debug")]
         public bool disableGravity;
@@ -21,6 +22,7 @@ namespace Actors
         #region Private
 
         private Rigidbody2D _rb;
+        private ProjectileShooter _projectileShooter;
 
         private Vector2 _linearVelocity;
         private float _direction;
@@ -28,6 +30,8 @@ namespace Actors
         // Inputs
         private bool _thrustActive;
         private float _rotationInput;
+        private bool _isFiring = false;
+        private float _timeToNextFire = 0f;
 
         #endregion
 
@@ -36,6 +40,7 @@ namespace Actors
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _projectileShooter = GetComponent<ProjectileShooter>();
 
             if (properties == null)
             {
@@ -52,11 +57,30 @@ namespace Actors
 
             _direction = _rb.rotation;
         }
-    
+
+        private void Update()
+        {
+            _timeToNextFire -= Time.deltaTime;
+            
+            if (_isFiring)
+            {
+                if (_timeToNextFire <= 0f)
+                {
+                    FireOnce();
+                    _timeToNextFire += fireDelay;
+                } 
+            }
+
+            if (!_isFiring)
+            {
+                _timeToNextFire = Mathf.Max(_timeToNextFire, 0f);
+            }
+        }
+
         private void FixedUpdate()
         {
             _rb.rotation = _direction;
-        
+
             var rotationSpeed = _thrustActive ? properties.rotationSpeedThrust : properties.rotationSpeedNoThrust;
 
             _direction += Time.deltaTime * _rotationInput * rotationSpeed;
@@ -76,9 +100,15 @@ namespace Actors
                 );
             }
             // Downward gravity if no thrust and above horizon
-            else if (transform.position.y > 0f && !disableGravity)
+
+            if (!disableGravity)
             {
-                _rb.linearVelocity += Time.deltaTime * new Vector2(0f, -properties.gravityAcceleration);
+                var gravityForce = properties.gravityAcceleration * (_thrustActive ? 0.15f : 1f);
+                
+                if (transform.position.y > 0f)
+                {
+                    _rb.linearVelocity += Time.deltaTime * new Vector2(0f, -gravityForce);
+                }
             }
 
             if (transform.position.y < 0f)
@@ -115,6 +145,29 @@ namespace Actors
         public void SetRotationInput(float rotationInput)
         {
             _rotationInput = rotationInput;
+        }
+
+        public void StartFiring()
+        {
+            _isFiring = true;
+        }
+
+        public void StopFiring()
+        {
+            _isFiring = false;
+        }
+
+        public void FireOnce()
+        {
+            if (_projectileShooter != null)
+            {
+                _projectileShooter.Fire(transform.position, _direction);
+            }
+        }
+
+        public void ApplyDamage(Projectile projectile)
+        {
+            Debug.Log($"{name} has been damaged by {projectile.name}!");
         }
     }
 }

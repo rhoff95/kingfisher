@@ -11,7 +11,7 @@ namespace Actors
         private PlayerActions.GameplayActions _gameplayActions;
         private Actor _actor;
         private ProjectileShooter _projectileShooter;
-    
+
         public SpriteRenderer thrustSpriteRenderer;
 
         private void Awake()
@@ -20,11 +20,11 @@ namespace Actors
             _playerActions = new PlayerActions();
             _gameplayActions = _playerActions.Gameplay;
             _gameplayActions.AddCallbacks(this);
-        
+
             // Components
             _actor = GetComponent<Actor>();
             _projectileShooter = GetComponent<ProjectileShooter>();
-        
+
             // Initialization
             thrustSpriteRenderer.enabled = false;
         }
@@ -67,7 +67,7 @@ namespace Actors
             var value = context.ReadValue<float>();
             _actor.SetRotationInput(value);
         }
-    
+
         public void OnRestart(InputAction.CallbackContext context)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -77,7 +77,11 @@ namespace Actors
         {
             if (context.performed)
             {
-                _projectileShooter.Fire(transform.position, Vector3.right);
+                _actor.StartFiring();
+            }
+            else if (context.canceled)
+            {
+                _actor.StopFiring();
             }
         }
 
