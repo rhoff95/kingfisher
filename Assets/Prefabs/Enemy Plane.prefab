@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4002936601292341380}
   - component: {fileID: 2594124039340335644}
   - component: {fileID: 7700901722741302007}
+  - component: {fileID: 1293739162333213908}
   m_Layer: 11
   m_Name: Enemy Plane
   m_TagString: Untagged
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActorController
   properties: {fileID: 11400000, guid: d49aa25e55eaf344a8db0a72c2ae1935, type: 2}
   initialVelocity: {x: 0, y: 0}
-  fireDelay: 0
+  fireDelay: 2
   disableGravity: 0
   disableInitialVelocity: 0
 --- !u!114 &7700901722741302007
@@ -132,7 +133,24 @@ MonoBehaviour:
   angleThreshold: 30
   accelerationRange: 10
   closeupRange: 3
+  attackRange: 30
   waterLevel: 0
+--- !u!114 &1293739162333213908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238829016720239023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d94da8516da23f4e9dbdfe0ccaf5f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileShooter
+  projectilePrefab: {fileID: 5291337161910591983, guid: 97555e9780afe2043954bb40d3a465bc, type: 3}
+  team: 1
+  projectileSpeed: 25
+  damage: 25
 --- !u!1 &6294964904789263369
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,10 +7,11 @@ namespace Actors.Enemies
         [Range(0f, 90f)] public float angleThreshold;
         [Range(0f, 100f)] public float accelerationRange;
         [Range(0f, 100f)] public float closeupRange;
+        [Range(0f, 100f)] public float attackRange;
         public float waterLevel;
-    
+
         private Color _thrustMode;
-    
+
         private void Update()
         {
             var playerPosition = ActorTransform.position;
@@ -32,7 +33,7 @@ namespace Actors.Enemies
             }
 
             var distanceToPlayerSqr = toPlayer.sqrMagnitude;
-        
+
             if (distanceToPlayerSqr > accelerationRange * accelerationRange && angleAbs < 40f)
             {
                 _thrustMode = Color.green;
@@ -52,6 +53,15 @@ namespace Actors.Enemies
             {
                 _thrustMode = Color.red;
                 Actor.SetThrustActive(false);
+            }
+
+            if (angleAbs < 40f && distanceToPlayerSqr < attackRange * attackRange)
+            {
+                Actor.StartFiring();
+            }
+            else
+            {
+                Actor.StopFiring();
             }
         }
 
