@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Environment
 {
-    public class ProjectileSplash : MonoBehaviour
+    public class DelayedDestroy : MonoBehaviour
     {
         public float delay = 1f;
 

@@ -14,6 +14,8 @@ namespace Actors.Enemies
 
         private void Update()
         {
+            // TODO Handle actor being destroyed
+
             var playerPosition = ActorTransform.position;
             var position = transform.position;
             var toPlayer = playerPosition - position;

@@ -21,6 +21,7 @@ public class Projectile : MonoBehaviour
 
     private bool _hitWater;
 
+    public GameObject explodePrefab;
     public GameObject splashPrefab;
 
     private void Awake()
@@ -50,13 +51,14 @@ public class Projectile : MonoBehaviour
         var damagable = other.attachedRigidbody.GetComponentInParent<IDamagable>();
         if (damagable == null)
         {
+            Instantiate(explodePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
             return;
         }
 
         damagable.ApplyDamage(_damage);
 
-        // Create explosion FX
+        Instantiate(explodePrefab, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
     }
