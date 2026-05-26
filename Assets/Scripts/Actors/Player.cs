@@ -10,9 +10,10 @@ namespace Actors
         private PlayerActions _playerActions;
         private PlayerActions.GameplayActions _gameplayActions;
         private Actor _actor;
-        private ProjectileShooter _projectileShooter;
 
-        public SpriteRenderer thrustSpriteRenderer;
+        public Animator thrustAnimator;
+
+        private static readonly int Active = Animator.StringToHash("active");
 
         private void Awake()
         {
@@ -23,10 +24,6 @@ namespace Actors
 
             // Components
             _actor = GetComponent<Actor>();
-            _projectileShooter = GetComponent<ProjectileShooter>();
-
-            // Initialization
-            thrustSpriteRenderer.enabled = false;
         }
 
         private void OnDestroy()
@@ -53,12 +50,12 @@ namespace Actors
             if (value)
             {
                 _actor.SetThrustActive(true);
-                thrustSpriteRenderer.enabled = true;
+                thrustAnimator.SetBool(Active, true);
             }
             else
             {
                 _actor.SetThrustActive(false);
-                thrustSpriteRenderer.enabled = false;
+                thrustAnimator.SetBool(Active, false);
             }
         }
 
