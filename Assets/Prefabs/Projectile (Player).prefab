@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df7dc8b00143b043a48f1762293812b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  splashPrefab: {fileID: 401526158277116770, guid: b0cbc629f77ba3649a7837033b333806, type: 3}
 --- !u!50 &5531429260243183059
 Rigidbody2D:
   serializedVersion: 5

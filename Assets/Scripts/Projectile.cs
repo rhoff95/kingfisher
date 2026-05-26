@@ -19,6 +19,10 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D _rb;
     private Collider2D _collider;
 
+    private bool _hitWater;
+
+    public GameObject splashPrefab;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -30,6 +34,15 @@ public class Projectile : MonoBehaviour
         _rb.rotation = _direction;
         var directionRad = _direction * Mathf.Deg2Rad;
         _rb.linearVelocity = new Vector3(Mathf.Cos(directionRad), Mathf.Sin(directionRad), 0f) * _speed;
+    }
+
+    private void Update()
+    {
+        if (!_hitWater && transform.position.y <= 0f)
+        {
+            _hitWater = true;
+            Instantiate(splashPrefab, new Vector3(transform.position.x, 0f, 0f), Quaternion.identity);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -62,7 +75,7 @@ public class Projectile : MonoBehaviour
     {
         _team = team;
     }
-    
+
     public void SetDamage(int damage)
     {
         _damage = damage;
