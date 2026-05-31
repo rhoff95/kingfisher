@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Actors;
 using Actors.Enemies;
+using Environment;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,9 +16,12 @@ internal struct EnemySpawn
 }
 
 public class GameManager : MonoBehaviour
+// , InputActions.IMenuActions
 {
     public static GameManager Instance;
-    
+
+    private bool _gameIsStarted = false;
+
     // 1:8 small ship
     // 1:6 jet
     // 1:25 Big ship
@@ -27,24 +32,40 @@ public class GameManager : MonoBehaviour
     [Range(0.5f, 10f)] public float spawnInterval;
     [Range(0, 100)] public int maxEnemies;
 
+    // private InputActions _inputActions;
+    // private InputActions.MenuActions _menuActions;
     private int _totalWeights;
     private bool _gameRunning = true;
     private List<Enemy> _enemies = new();
     private Camera _camera;
+    private Player _player;
 
     private void Awake()
     {
         Instance = this;
-        
+
         _camera = Camera.main;
+        _player = FindFirstObjectByType<Player>();
     }
 
     private void Start()
     {
         _totalWeights = enemyTypes.Sum(et => et.weight);
-        StartCoroutine(SpawnEnemiesRoutine());
     }
 
+    public void StartGame()
+    {
+        if (_gameIsStarted)
+        {
+            return;
+        }
+
+        _gameIsStarted = true;
+
+        Debug.Log("Staring game...");
+        StartCoroutine(SpawnEnemiesRoutine());
+        FindFirstObjectByType<Submarine>().StartDecent();
+    }
 
     private IEnumerator SpawnEnemiesRoutine()
     {

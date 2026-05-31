@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 namespace Actors
 {
     [RequireComponent(typeof(Actor), typeof(ProjectileShooter))]
-    public class Player : MonoBehaviour, PlayerActions.IGameplayActions
+    public class Player : MonoBehaviour, InputActions.IPlaneActions
     {
-        private PlayerActions _playerActions;
-        private PlayerActions.GameplayActions _gameplayActions;
+        private InputActions _inputActions;
+        private InputActions.PlaneActions _planeActions;
         private Actor _actor;
         private bool _hitOverlayFlash;
         public float healthRegenerationRate;
@@ -27,9 +27,10 @@ namespace Actors
         private void Awake()
         {
             // Inputs
-            _playerActions = new PlayerActions();
-            _gameplayActions = _playerActions.Gameplay;
-            _gameplayActions.AddCallbacks(this);
+            _inputActions = new InputActions();
+            
+            _planeActions = _inputActions.Plane;
+            _planeActions.AddCallbacks(this);
 
             // Components
             _actor = GetComponent<Actor>();
@@ -38,6 +39,7 @@ namespace Actors
                 _hitOverlayFlash = true;
                 healthOverlay.color = healthDanger;
             };
+            _actor.enabled = false;
         }
 
         private void Update()
@@ -64,17 +66,17 @@ namespace Actors
 
         private void OnDestroy()
         {
-            _playerActions.Dispose();
+            _inputActions.Dispose();
         }
 
         private void OnEnable()
         {
-            _gameplayActions.Enable();
+            _planeActions.Enable();
         }
 
         private void OnDisable()
         {
-            _gameplayActions.Disable();
+            _planeActions.Disable();
         }
 
         #region Interface implementation of PlayerActions.IGameplayActions
@@ -108,6 +110,10 @@ namespace Actors
 
         public void OnFire(InputAction.CallbackContext context)
         {
+            Debug.Log("On Start Game");
+            GameManager.Instance.StartGame();
+            _actor.enabled = true;
+            
             if (context.performed)
             {
                 _actor.StartFiring();

@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
     [Range(0f, 10f)] public float smoothTime;
     [TagSelector] public string playerTag;
 
-    private void Start()
+    private void Awake()
     {
         _playerTransform = GameObject.FindGameObjectWithTag(playerTag).transform;
     }
