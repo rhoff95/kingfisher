@@ -34,7 +34,9 @@ namespace Actors
         private float _timeToNextFire = 0f;
         private int _health;
 
-        private const int MaxHealth = 100;
+        public int Health => _health;
+
+        public const int MaxHealth = 100;
 
         #endregion
 

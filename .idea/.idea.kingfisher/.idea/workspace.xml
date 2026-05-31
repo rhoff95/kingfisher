@@ -8,9 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actors/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actors/Actor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actors/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actors/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actors/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actors/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +123,7 @@
       <workItem from="1779066729400" duration="1418000" />
       <workItem from="1779153513004" duration="1792000" />
       <workItem from="1779669765483" duration="13831000" />
-      <workItem from="1780179492008" duration="3896000" />
+      <workItem from="1780179492008" duration="6380000" />
     </task>
     <task id="LOCAL-00001" summary="Adds project files">
       <option name="closed" value="true" />

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,8 @@ namespace Actors
         private Actor _actor;
 
         public Animator thrustAnimator;
+        public float maxHealthMaskSize;
+        public Transform healthMask;
 
         private static readonly int Active = Animator.StringToHash("active");
 
@@ -24,6 +27,13 @@ namespace Actors
 
             // Components
             _actor = GetComponent<Actor>();
+        }
+
+        private void Update()
+        {
+            var healthPart = (float) _actor.Health / Actor.MaxHealth;
+            healthMask.localScale = Vector3.one * (healthPart * maxHealthMaskSize);
+            Debug.Log($"{_actor.Health} /  {Actor.MaxHealth} = {healthPart:F2} => {(healthPart * maxHealthMaskSize):F2}");
         }
 
         private void OnDestroy()
