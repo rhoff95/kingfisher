@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cc09cea-bf92-481f-adab-24dee98b529d" name="Changes" comment="Adds utils submodule">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy Jet.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy Jet.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Actor Properties/Enemy Jet Properties.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Actor Properties/Enemy Jet Properties.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Actor Properties/Enemy Plane Properties.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Actor Properties/Enemy Plane Properties.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Actors/Enemies/EnemyJet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Actors/Enemies/EnemyJet.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy Plane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy Plane.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actors/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actors/Actor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actors/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actors/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptable Objects/Actor Properties/Bee Properties.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptable Objects/Actor Properties/Bee Properties.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +130,7 @@
       <workItem from="1779066729400" duration="1418000" />
       <workItem from="1779153513004" duration="1792000" />
       <workItem from="1779669765483" duration="13831000" />
-      <workItem from="1780179492008" duration="9427000" />
+      <workItem from="1780179492008" duration="10769000" />
     </task>
     <task id="LOCAL-00001" summary="Adds project files">
       <option name="closed" value="true" />

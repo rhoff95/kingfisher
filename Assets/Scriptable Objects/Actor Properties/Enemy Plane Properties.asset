@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36aee46d881b4a01a81d7f5b291e807b, type: 3}
-  m_Name: Bee Properties
+  m_Name: Enemy Plane Properties
   m_EditorClassIdentifier: Assembly-CSharp::ActorProperties
   linearVelocitySmoothTime: 0.5
   thrustAcceleration: 15
