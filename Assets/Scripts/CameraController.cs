@@ -1,10 +1,8 @@
 using Scripts;
 using UnityEngine;
 
-[RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
-    private Camera _camera;
     private Transform _playerTransform;
     private Vector3 _currentVelocity;
 
