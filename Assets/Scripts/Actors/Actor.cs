@@ -40,6 +40,10 @@ namespace Actors
 
         public Rigidbody2D Rb => _rb;
 
+        public delegate void OnDeath();
+
+        public OnDeath onDeathCallback = () => { };
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -176,6 +180,7 @@ namespace Actors
 
             if (_health <= 0)
             {
+                onDeathCallback();
                 Destroy(gameObject);
             }
         }

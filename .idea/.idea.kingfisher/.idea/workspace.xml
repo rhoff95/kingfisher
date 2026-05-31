@@ -5,20 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cc09cea-bf92-481f-adab-24dee98b529d" name="Changes" comment="Adds utils submodule">
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Projectile/Explode.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Projectile/Explode/Projectile Explode Animator.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Projectile/Explode/Projectile Explode Animator.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Projectile/Explode/Projectile Explode.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Projectile/Explode/Projectile Explode.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectile Explode.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectile Explode.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.kingfisher/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectile (Enemy).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectile (Enemy).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectile (Player).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectile (Player).prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actors/Enemies/EnemyPlane.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actors/Enemies/EnemyPlane.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environment/ProjectileSplash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/ProjectileSplash.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actors/Actor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actors/Actor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actors/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actors/Enemies/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/sprite-sheet.aseprite" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,17 +27,18 @@
     &quot;assignee&quot;: &quot;rhoff95&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:rhoff95/kingfisher.git",
-    "accountId": "d6bc3ea4-fa20-4a27-b769-8ed935d2f164"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:rhoff95/kingfisher.git&quot;,
+    &quot;accountId&quot;: &quot;d6bc3ea4-fa20-4a27-b769-8ed935d2f164&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6567e2a645a94ef68fffcf0e5cb82d14212a00/13/a38e14f2/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6567e2a645a94ef68fffcf0e5cb82d14212a00/31/db1a94e9/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6567e2a645a94ef68fffcf0e5cb82d14212a00/5b/98d0953c/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6567e2a645a94ef68fffcf0e5cb82d14212a00/a8/b3ff0690/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6567e2a645a94ef68fffcf0e5cb82d14212a00/cb/cc445ed5/Random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Environment/ProjectileSplash.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -131,7 +124,8 @@
       <workItem from="1779037131146" duration="3878000" />
       <workItem from="1779066729400" duration="1418000" />
       <workItem from="1779153513004" duration="1792000" />
-      <workItem from="1779669765483" duration="12925000" />
+      <workItem from="1779669765483" duration="13831000" />
+      <workItem from="1780179492008" duration="3896000" />
     </task>
     <task id="LOCAL-00001" summary="Adds project files">
       <option name="closed" value="true" />
