@@ -1162,6 +1162,7 @@ MonoBehaviour:
   thrustAnimator: {fileID: 1447274960}
   maxHealthMaskSize: 50
   healthMask: {fileID: 1162642608}
+  healthRegenerationDelay: 1
 --- !u!4 &1061674963
 Transform:
   m_ObjectHideFlags: 0

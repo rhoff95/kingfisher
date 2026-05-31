@@ -25,7 +25,7 @@ namespace Actors.Enemies
 
         protected void Start()
         {
-            Actor.onDeathCallback += () => _gameManager.RemoveEnemy(this);
+            Actor.OnDeathCallback += () => _gameManager.RemoveEnemy(this);
         }
     }
 }

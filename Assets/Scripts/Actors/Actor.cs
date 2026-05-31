@@ -42,9 +42,10 @@ namespace Actors
 
         public Rigidbody2D Rb => _rb;
 
-        public delegate void OnDeath();
+        public delegate void Callback();
 
-        public OnDeath onDeathCallback = () => { };
+        public Callback OnDeathCallback = () => { };
+        public Callback OnHitCallback = () => { };
 
         private void Awake()
         {
@@ -180,11 +181,18 @@ namespace Actors
         {
             _health -= damage;
 
+            OnHitCallback();
+            
             if (_health <= 0)
             {
-                onDeathCallback();
+                OnDeathCallback();
                 Destroy(gameObject);
             }
+        }
+
+        public void AddHealth(int increment)
+        {
+            _health = Mathf.Min(_health + increment, MaxHealth);
         }
 
         private void OnTriggerEnter2D(Collider2D other)

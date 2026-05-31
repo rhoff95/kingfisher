@@ -15,8 +15,12 @@ namespace Actors
         public Animator thrustAnimator;
         public float maxHealthMaskSize;
         public Transform healthMask;
+        public float healthRegenerationDelay;
 
         private static readonly int Active = Animator.StringToHash("active");
+
+        private bool _regeneratingHealth = true;
+        private float _regeneratingHealthTimer = 0f;
 
         private void Awake()
         {
@@ -27,13 +31,35 @@ namespace Actors
 
             // Components
             _actor = GetComponent<Actor>();
+            _actor.OnHitCallback = () =>
+            {
+                _regeneratingHealth = false;
+                _regeneratingHealthTimer = healthRegenerationDelay;
+            };
         }
 
         private void Update()
         {
-            var healthPart = (float) _actor.Health / Actor.MaxHealth;
+            var healthPart = (float)_actor.Health / Actor.MaxHealth;
             healthMask.localScale = Vector3.one * (healthPart * maxHealthMaskSize);
-            Debug.Log($"{_actor.Health} /  {Actor.MaxHealth} = {healthPart:F2} => {(healthPart * maxHealthMaskSize):F2}");
+            Debug.Log(
+                $"{_actor.Health} /  {Actor.MaxHealth} = {healthPart:F2} => {(healthPart * maxHealthMaskSize):F2}");
+
+            if (!_regeneratingHealth)
+            {
+                _regeneratingHealthTimer -= Time.deltaTime;
+                _regeneratingHealthTimer = Mathf.Max(_regeneratingHealthTimer, 0f);
+            }
+
+            if (_regeneratingHealthTimer <= 0f)
+            {
+                _regeneratingHealth = true;
+            }
+
+            if (_regeneratingHealth)
+            {
+                _actor.AddHealth(1);
+            }
         }
 
         private void OnDestroy()
