@@ -150,7 +150,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5291337161910591983, guid: 97555e9780afe2043954bb40d3a465bc, type: 3}
   team: 1
   projectileSpeed: 25
-  damage: 25
+  damage: 40
 --- !u!1 &6294964904789263369
 GameObject:
   m_ObjectHideFlags: 0

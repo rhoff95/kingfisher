@@ -11,16 +11,18 @@ namespace Actors
         private PlayerActions _playerActions;
         private PlayerActions.GameplayActions _gameplayActions;
         private Actor _actor;
-
+        private bool _hitOverlayFlash;
+        public float healthRegenerationRate;
+       [Range(0f, 1f)] public float healthOverlayCutoff;
+        
         public Animator thrustAnimator;
         public float maxHealthMaskSize;
         public Transform healthMask;
-        public float healthRegenerationDelay;
+        public SpriteRenderer healthOverlay;
+        public Color healthDanger;
+        public Color healthRecover;
 
         private static readonly int Active = Animator.StringToHash("active");
-
-        private bool _regeneratingHealth = true;
-        private float _regeneratingHealthTimer = 0f;
 
         private void Awake()
         {
@@ -33,32 +35,30 @@ namespace Actors
             _actor = GetComponent<Actor>();
             _actor.OnHitCallback = () =>
             {
-                _regeneratingHealth = false;
-                _regeneratingHealthTimer = healthRegenerationDelay;
+                _hitOverlayFlash = true;
+                healthOverlay.color = healthDanger;
             };
         }
 
         private void Update()
         {
-            var healthPart = (float)_actor.Health / Actor.MaxHealth;
-            healthMask.localScale = Vector3.one * (healthPart * maxHealthMaskSize);
-            Debug.Log(
-                $"{_actor.Health} /  {Actor.MaxHealth} = {healthPart:F2} => {(healthPart * maxHealthMaskSize):F2}");
+            var healthPart = _actor.Health / Actor.MaxHealth;
+            var adjustedHealthPart = healthPart > healthOverlayCutoff ? 1f : healthPart;
+            
+            healthMask.localScale = Vector3.one * (adjustedHealthPart * maxHealthMaskSize);
 
-            if (!_regeneratingHealth)
+            if (_hitOverlayFlash)
             {
-                _regeneratingHealthTimer -= Time.deltaTime;
-                _regeneratingHealthTimer = Mathf.Max(_regeneratingHealthTimer, 0f);
+                _hitOverlayFlash = false;
+            }
+            else
+            {
+                healthOverlay.color = healthRecover;
             }
 
-            if (_regeneratingHealthTimer <= 0f)
+            if (!_actor.IsFiring())
             {
-                _regeneratingHealth = true;
-            }
-
-            if (_regeneratingHealth)
-            {
-                _actor.AddHealth(1);
+                _actor.AddHealth(healthRegenerationRate * Time.deltaTime);
             }
         }
 

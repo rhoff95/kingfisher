@@ -32,11 +32,11 @@ namespace Actors
         private float _rotationInput;
         private bool _isFiring = false;
         private float _timeToNextFire = 0f;
-        private int _health;
+        private float _health;
 
-        public int Health => _health;
+        public float Health => _health;
 
-        public const int MaxHealth = 100;
+        public const float MaxHealth = 100f;
 
         #endregion
 
@@ -169,6 +169,11 @@ namespace Actors
             _isFiring = false;
         }
 
+        public bool IsFiring()
+        {
+            return _isFiring;
+        }
+        
         public void FireOnce()
         {
             if (_projectileShooter != null)
@@ -190,7 +195,7 @@ namespace Actors
             }
         }
 
-        public void AddHealth(int increment)
+        public void AddHealth(float increment)
         {
             _health = Mathf.Min(_health + increment, MaxHealth);
         }
