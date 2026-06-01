@@ -182,7 +182,7 @@ namespace Actors
             }
         }
 
-        public void ApplyDamage(int damage)
+        public void ApplyDamage(float damage)
         {
             _health -= damage;
 
@@ -208,8 +208,8 @@ namespace Actors
                 return;
             }
 
-            damagable.ApplyDamage(0);
-            ApplyDamage(0);
+            damagable.ApplyDamage(25f);
+            ApplyDamage(15f);
         }
     }
 }
