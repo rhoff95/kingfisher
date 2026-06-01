@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeeController
   playerTag: Player
+  scoreValue: 15
   angleThreshold: 30
   accelerationRange: 10
   closeupRange: 3

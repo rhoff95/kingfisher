@@ -5,6 +5,7 @@ using System.Linq;
 using Actors;
 using Actors.Enemies;
 using Environment;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,7 +17,6 @@ internal struct EnemySpawn
 }
 
 public class GameManager : MonoBehaviour
-// , InputActions.IMenuActions
 {
     public static GameManager Instance;
 
@@ -31,7 +31,8 @@ public class GameManager : MonoBehaviour
 
     [Range(0.5f, 10f)] public float spawnInterval;
     [Range(0, 100)] public int maxEnemies;
-
+    public TextMeshProUGUI scoreText;
+    
     // private InputActions _inputActions;
     // private InputActions.MenuActions _menuActions;
     private int _totalWeights;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     private List<Enemy> _enemies = new();
     private Camera _camera;
     private Player _player;
+    private int _score;
 
     private void Awake()
     {
@@ -98,5 +100,7 @@ public class GameManager : MonoBehaviour
     public void RemoveEnemy(Enemy enemy)
     {
         _enemies.Remove(enemy);
+        _score += enemy.scoreValue;
+        scoreText.text = $"{_score:D6}";
     }
 }

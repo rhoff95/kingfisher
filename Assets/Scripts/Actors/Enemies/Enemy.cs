@@ -12,7 +12,8 @@ namespace Actors.Enemies
         protected GameManager _gameManager;
 
         [TagSelector] public string playerTag;
-
+        public int scoreValue;
+        
         protected void Awake()
         {
             Actor = GetComponent<Actor>();
