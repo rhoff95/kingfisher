@@ -529,7 +529,7 @@ MonoBehaviour:
   translationalNoiseFrequency: 80
   rotationalNoiseAmplitude: 0.25
   rotationalNoiseFrequency: 80
-  shakeSmoothTime: 1
+  shakeSmoothTime: 0.1
   shakeAmount: 0
 --- !u!1 &619394800
 GameObject:
@@ -6005,6 +6005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b730f1cdb3d1f04f8ae50b50354b3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  onHitShakeAmount: 0.3
   healthRegenerationRate: 25
   healthOverlayCutoff: 0.7
   thrustAnimator: {fileID: 1447274960}

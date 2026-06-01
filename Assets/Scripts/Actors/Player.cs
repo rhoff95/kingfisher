@@ -1,4 +1,5 @@
 using System;
+using Plugins.unity_utils.Scripts.Camera;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,9 @@ namespace Actors
         private InputActions.PlaneActions _planeActions;
         private Actor _actor;
         private bool _hitOverlayFlash;
+        private ShakyCamera _shakyCamera;
+
+        public float onHitShakeAmount;
         public float healthRegenerationRate;
        [Range(0f, 1f)] public float healthOverlayCutoff;
         
@@ -32,12 +36,15 @@ namespace Actors
             _planeActions = _inputActions.Plane;
             _planeActions.AddCallbacks(this);
 
+            _shakyCamera = FindFirstObjectByType<ShakyCamera>();
+            
             // Components
             _actor = GetComponent<Actor>();
             _actor.OnHitCallback = () =>
             {
                 _hitOverlayFlash = true;
                 healthOverlay.color = healthDanger;
+                _shakyCamera.AddShake(onHitShakeAmount);
             };
             _actor.enabled = false;
         }
