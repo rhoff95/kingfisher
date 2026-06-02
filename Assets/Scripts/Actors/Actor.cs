@@ -8,8 +8,20 @@ namespace Actors
     {
         #region Public
 
-        public ActorProperties properties;
+        [Header("Movement")]
+        [Range(0f, 1f)]public float linearVelocitySmoothTime;
+        [Range(0f, 100f)] public float gravityAcceleration;
+        [Range(0f, 100f)] public float buoyancyAcceleration;
+        [Range(0f, 100f)] public float maxSpeed;
+    
+        [Header("Rotation")]
+        [Range(0f, 500f)] public float rotationSpeedNoThrust;
+        [Range(0f, 500f)] public float rotationSpeedThrust;
+        
+        [Header("Other")]
         public Vector2 initialVelocity;
+        
+        [Header("Weapons")]
         [Range(0f, 5f)] public float fireDelay;
 
         [Header("Debug")]
@@ -51,12 +63,6 @@ namespace Actors
         {
             _rb = GetComponent<Rigidbody2D>();
             _projectileShooter = GetComponent<ProjectileShooter>();
-
-            if (properties == null)
-            {
-                throw new Exception($"Properties is null for {name}");
-            }
-
             _health = MaxHealth;
         }
 
@@ -93,7 +99,7 @@ namespace Actors
         {
             _rb.rotation = _direction;
 
-            var rotationSpeed = _thrustActive ? properties.rotationSpeedThrust : properties.rotationSpeedNoThrust;
+            var rotationSpeed = _thrustActive ? rotationSpeedThrust : rotationSpeedNoThrust;
 
             _direction += Time.deltaTime * _rotationInput * rotationSpeed;
             _direction %= 360;
@@ -106,16 +112,16 @@ namespace Actors
             {
                 _rb.linearVelocity = Vector2.SmoothDamp(
                     _rb.linearVelocity,
-                    direction.normalized * properties.maxSpeed,
+                    direction.normalized * maxSpeed,
                     ref _linearVelocity,
-                    properties.linearVelocitySmoothTime
+                    linearVelocitySmoothTime
                 );
             }
             // Downward gravity if no thrust and above horizon
 
             if (!disableGravity)
             {
-                var gravityForce = properties.gravityAcceleration * (_thrustActive ? 0.15f : 1f);
+                var gravityForce = gravityAcceleration * (_thrustActive ? 0.15f : 1f);
                 
                 if (transform.position.y > 0f)
                 {
@@ -127,17 +133,17 @@ namespace Actors
             {
                 if (_rb.linearVelocity.y > 0f)
                 {
-                    _rb.linearVelocity += Time.deltaTime * new Vector2(0f, properties.buoyancyAcceleration);
+                    _rb.linearVelocity += Time.deltaTime * new Vector2(0f, buoyancyAcceleration);
                 }
                 else
                 {
-                    _rb.linearVelocity += Time.deltaTime * new Vector2(0f, properties.buoyancyAcceleration);
+                    _rb.linearVelocity += Time.deltaTime * new Vector2(0f, buoyancyAcceleration);
                 }
             }
 
-            if (_rb.linearVelocity.magnitude > properties.maxSpeed)
+            if (_rb.linearVelocity.magnitude > maxSpeed)
             {
-                _rb.linearVelocity = _rb.linearVelocity.normalized * properties.maxSpeed;
+                _rb.linearVelocity = _rb.linearVelocity.normalized * maxSpeed;
             }
         }
 

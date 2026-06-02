@@ -112,7 +112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db374b35a5141a0967dd4d2253f17c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActorController
-  properties: {fileID: 11400000, guid: d49aa25e55eaf344a8db0a72c2ae1935, type: 2}
+  linearVelocitySmoothTime: 0.5
+  gravityAcceleration: 3
+  buoyancyAcceleration: 51.4
+  maxSpeed: 12
+  rotationSpeedNoThrust: 300
+  rotationSpeedThrust: 90
   initialVelocity: {x: 0, y: 0}
   fireDelay: 2
   disableGravity: 0

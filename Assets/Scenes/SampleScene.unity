@@ -6207,7 +6207,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db374b35a5141a0967dd4d2253f17c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActorController
-  properties: {fileID: 11400000, guid: 8e04ec38676f501428f7f2548c9fe93d, type: 2}
+  linearVelocitySmoothTime: 0.3
+  gravityAcceleration: 10.24
+  buoyancyAcceleration: 51.2
+  maxSpeed: 12
+  rotationSpeedNoThrust: 320
+  rotationSpeedThrust: 120
   initialVelocity: {x: 0, y: 12.8}
   fireDelay: 0.15
   disableGravity: 0
@@ -6295,6 +6300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   enemyTypes:
   - prefab: {fileID: 1238829016720239023, guid: 169ba1f4ffc00364494d123eb9f6e8ea, type: 3}
+    weight: 0
+  - prefab: {fileID: 1108485562121905339, guid: acb892981883dd040bd2abd9f14f3604, type: 3}
     weight: 1
   spawnInterval: 2
   maxEnemies: 5

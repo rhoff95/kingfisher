@@ -94,7 +94,20 @@ public class GameManager : MonoBehaviour
 
     private GameObject GetEnemyPrefab()
     {
-        return enemyTypes.First().prefab;
+        var value = Random.value * _totalWeights;
+        var indexSum = 0f;
+        
+        foreach (var enemyType in enemyTypes)
+        {
+            indexSum += enemyType.weight;
+
+            if (value < indexSum)
+            {
+                return enemyType.prefab;
+            }
+        }
+        
+        return enemyTypes.Last().prefab;
     }
 
     public void RemoveEnemy(Enemy enemy)
